@@ -1,0 +1,14 @@
+.buttonsCardEquipamento {
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  margin: 5px;
+}
+
+#acoes span {
+  cursor: pointer;
+}
+
+#delete {
+  color: var(--rosa);
+}

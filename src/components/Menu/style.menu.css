@@ -1,0 +1,80 @@
+#menuLateral {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--preto);
+  width: 20%;
+  height: 100vh;
+}
+
+#sidebarCima {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+#sidebarCima img {
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+
+#sidebarCima h3 {
+  color: var(--branco);
+  font-size: 3vw;
+  display: flex;
+  align-items: center;
+}
+
+#sidebarLinks ul {
+  list-style-type: none;
+}
+
+#sidebarLinks {
+  display: flex;
+  justify-content: left;
+  padding: 10px;
+}
+
+#sidebarLinks ul {
+  width: 100%;
+}
+
+#sidebarLinks ul li a {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 5px;
+  text-decoration: none;
+  color: var(--branco);
+  justify-content: ce;
+}
+
+.iconMenu svg {
+  display: flex;
+  align-items: center;
+  width: 1.3vw;
+}
+
+#sidebarLinks ul li a span {
+  margin-left: 5%;
+  font-size: 1.3vw;
+}
+
+.normalLink a:hover {
+  background-color: var(--cinza);
+  color: var(--preto);
+}
+
+.normalLink a:hover .linkHide {
+  color: var(--preto);
+}
+
+#sairLink a:hover {
+  background-color: var(--rosa);
+}

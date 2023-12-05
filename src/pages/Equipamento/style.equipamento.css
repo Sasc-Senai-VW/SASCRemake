@@ -1,0 +1,38 @@
+#equipamento {
+  background-color: var(--branco);
+  margin-left: 20%;
+  padding: 25px;
+  display: flex;
+}
+
+#coluna th {
+  font-size: 1.3vw;
+  background-color: var(--verde);
+
+  height: 50px;
+  color: var(--branco);
+}
+
+#linhas td {
+  border-bottom: solid 1px var(--verde);
+  border-top: solid 1px var(--verde);
+
+  text-align: center;
+  font-size: 1vw;
+  padding: 10px;
+}
+
+#linhas:nth-child(odd) {
+  background-color: var(--branco);
+}
+
+#linhas:nth-child(even) {
+  background-color: var(--cinza);
+}
+
+#tabela {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border: solid 1px var(--verde);
+}
