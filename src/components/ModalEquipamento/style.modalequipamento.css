@@ -1,4 +1,4 @@
-#modalBackground {
+#modalBackgroundEquipamento {
   z-index: 9999;
   width: 100vw;
   height: 100vh;
@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-#modal {
+#modalEquipamento {
   display: block;
   background: var(--branco);
   width: 85%;

@@ -2,11 +2,20 @@ import "./style.cadastro.css";
 
 import ModalEquipamento from "../../components/ModalEquipamento";
 import useModalEquipamento from "../../hooks/useModalEquipamento";
+import ModalSetor from "../../components/ModalSetor";
+import useModalSetor from "../../hooks/useModalSetor";
+import ModalFuncionario from "../../components/ModalFuncionario";
+import useModalFuncionario from "../../hooks/useModalFuncionario";
+import ModalEndereco from "../../components/ModalEndereco";
+import useModalEndereco from "../../hooks/useModalEndereco";
+import ModalFabricante from "../../components/ModalFabricante";
+import useModalFabricante from "../../hooks/useModalFabricante";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import api from "../../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ModalFabricante from "../../components/ModalFabricante/index";
 
 export default function Cadastro() {
   const notify = () =>
@@ -31,6 +40,13 @@ export default function Cadastro() {
   const [bairro, setBairro] = useState("");
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
+
+
+  
+ 
+
+
+
 
   const handleSubmitEquipamento = (event) => {
     event.preventDefault();
@@ -86,11 +102,19 @@ export default function Cadastro() {
     listarSetores();
   }, []);
 
-  const { isOpen, toggleEquipamento } = useModalEquipamento();
+  const { isOpenEquipamento, toggleEquipamento } = useModalEquipamento();
+  const {isOpenSetor, toggleSetor} = useModalSetor();
+  const {isOpenFuncionario, toggleFuncionario} = useModalFuncionario();
+  const {isOpenEndereco, toggleEndereco} = useModalEndereco();
+  const {isOpenFabricante, toggleFabricante} = useModalFabricante();
+
+
+
+
 
   return (
     <>
-      <ModalEquipamento isOpen={isOpen} toggleEquipamento={toggleEquipamento}>
+      <ModalEquipamento isOpenEquipamento={isOpenEquipamento} toggleEquipamento={toggleEquipamento}>
         <div id="divformEquipamento">
           <h1>Cadastro de Equipamentos</h1>
           <form id="formEquipamento" onSubmit={handleSubmitEquipamento}>
@@ -159,6 +183,40 @@ export default function Cadastro() {
         </div>
       </ModalEquipamento>
 
+      <ModalSetor isOpenSetor={isOpenSetor} toggleSetor={toggleSetor}>
+        <div id= "divformSetor">
+          <h1>Cadastro de Setor</h1>
+          <form id="formSetor">
+          </form>
+        </div>
+      </ModalSetor>
+
+      <ModalFuncionario isOpenFuncionario={isOpenFuncionario} toggleFuncionario={toggleFuncionario}>
+        <div id="divformFuncionario">
+          <h1>Cadastro de Funcionarios</h1>
+          <form id="formFuncionario"></form>
+
+        </div>
+      </ModalFuncionario>
+
+      <ModalEndereco isOpenEndereco={isOpenEndereco} toggleEndereco={toggleEndereco}>
+        <div id="divformEndereco">
+          <h1> Cadastro Endereco</h1>
+          <form id="formEndereco"></form>
+        </div>
+      </ModalEndereco>
+
+      <ModalFabricante isOpenEndereco={isOpenEndereco} toggleEndereco={toggleEndereco}>
+        <div id="divformFabricante">
+          <h1>Cadastro Fabricante</h1>
+          <form id="formFabricante"></form>
+        </div>
+      </ModalFabricante>
+
+
+
+
+
       <div id="cadastro">
         <div className="centering">
           <div className="articles">
@@ -178,7 +236,7 @@ export default function Cadastro() {
               </div>
             </article>
 
-            <article>
+            <article onClick={toggleSetor}>
               <figure>
                 <img
                   src="https://img.freepik.com/fotos-gratis/design-de-escritorio-moderno-com-equipamento-de-computador-gerado-por-ai_188544-22422.jpg?w=826&t=st=1701032456~exp=1701033056~hmac=681e741200b5fbd2be5bd0fb6a8b010b93e11a29a5f96e6b5a3c5ab04dfd0acb"
@@ -194,7 +252,7 @@ export default function Cadastro() {
               </div>
             </article>
 
-            <article>
+            <article onClick={toggleFuncionario}>
               <figure>
                 <img
                   src="https://img.freepik.com/fotos-gratis/empregados-jovens-sentados-no-escritorio-a-mesa-e-usando-um-laptop-uma-equipe-trabalham-brainstorming-reuniao-conceito_146671-15624.jpg?w=740&t=st=1701032487~exp=1701033087~hmac=6ecfbef85f3ff2daf47ca313f990607bc4232f7e4f137344ba9d890dca3401ec"
@@ -210,7 +268,7 @@ export default function Cadastro() {
               </div>
             </article>
 
-            <article>
+            <article onClick={toggleEndereco}>
               <figure>
                 <img
                   src="https://img.freepik.com/fotos-gratis/pinos-vermelhos-turva-no-mapa_23-2148510530.jpg?w=740&t=st=1701210263~exp=1701210863~hmac=f093f00ccb4da518ee553de1257cdbedfcdca02e520a4cb26c15a1bc5115ea7d"
@@ -242,7 +300,7 @@ export default function Cadastro() {
               </div>
             </article>
 
-            <article>
+            <article onClick={toggleFabricante}>
               <figure>
                 <img
                   src="https://img.freepik.com/fotos-gratis/interior-de-um-grande-armazem-logistico-ai-generative_123827-23884.jpg?w=740&t=st=1701210441~exp=1701211041~hmac=33f44cb8698515f32ab41634904650dec2269bdb8f85cd80ba4b36bc6840659f"

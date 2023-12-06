@@ -3,16 +3,16 @@ import "./style.modalequipamento.css";
 
 interface ModalType {
   children?: ReactNode;
-  isOpen: boolean;
+  isOpenEquipamento: boolean;
   toggleEquipamento: () => void;
 }
 
 export default function ModalEquipamento(props: ModalType) {
   return (
     <>
-      {props.isOpen && (
-        <div id="modalBackground" onClick={props.toggleEquipamento}>
-          <div onClick={(e) => e.stopPropagation()} id="modal">
+      {props.isOpenEquipamento && (
+        <div id="modalBackgroundEquipamento" onClick={props.toggleEquipamento}>
+          <div onClick={(e) => e.stopPropagation()} id="modalEquipamento">
             {props.children}
           </div>
         </div>

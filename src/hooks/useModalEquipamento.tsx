@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 export default function useModalEquipamento() {
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpenEquipamento, setisOpenEquipamento] = useState(false);
 
   const toggleEquipamento = () => {
-    setisOpen(!isOpen);
+    setisOpenEquipamento(!isOpenEquipamento);
   };
 
   return {
-    isOpen,
+    isOpenEquipamento,
     toggleEquipamento,
   };
 }
