@@ -10,12 +10,13 @@ import ModalEndereco from "../../components/ModalEndereco";
 import useModalEndereco from "../../hooks/useModalEndereco";
 import ModalFabricante from "../../components/ModalFabricante";
 import useModalFabricante from "../../hooks/useModalFabricante";
+import ModalUnidade from "../../components/ModalUnidade/index";
+import useModalUnidade from "../../hooks/useModalUnidade";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import api from "../../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ModalFabricante from "../../components/ModalFabricante/index";
 
 export default function Cadastro() {
   const notify = () =>
@@ -107,6 +108,7 @@ export default function Cadastro() {
   const {isOpenFuncionario, toggleFuncionario} = useModalFuncionario();
   const {isOpenEndereco, toggleEndereco} = useModalEndereco();
   const {isOpenFabricante, toggleFabricante} = useModalFabricante();
+  const {isOpenUnidade, toggleUnidade} = useModalUnidade();
 
 
 
@@ -206,12 +208,20 @@ export default function Cadastro() {
         </div>
       </ModalEndereco>
 
-      <ModalFabricante isOpenEndereco={isOpenEndereco} toggleEndereco={toggleEndereco}>
+      <ModalFabricante isOpenFabricante={isOpenFabricante} toggleFabricante={toggleFabricante}>
         <div id="divformFabricante">
           <h1>Cadastro Fabricante</h1>
           <form id="formFabricante"></form>
         </div>
       </ModalFabricante>
+
+      <ModalUnidade isOpenFabricante={isOpenUnidade} toggleFabricante={toggleUnidade}>
+        <div id="divformUnidade">
+          <h1>Cadastro de Unidade</h1>
+          <form id="formUnidade"></form>
+        </div>
+
+      </ModalUnidade>
 
 
 
@@ -284,7 +294,7 @@ export default function Cadastro() {
               </div>
             </article>
 
-            <article>
+            <article onClick={toggleFabricante}>
               <figure>
                 <img
                   src="https://img.freepik.com/vetores-gratis/fundo-realista-do-processador-de-microchip_23-2148885300.jpg?w=740&t=st=1701210313~exp=1701210913~hmac=acbc81ff2dbefbebbc9eb85b099c72298eb39834bc53dda2c29ae6ab045a0b5b"
@@ -300,7 +310,7 @@ export default function Cadastro() {
               </div>
             </article>
 
-            <article onClick={toggleFabricante}>
+            <article onClick={toggleUnidade}>
               <figure>
                 <img
                   src="https://img.freepik.com/fotos-gratis/interior-de-um-grande-armazem-logistico-ai-generative_123827-23884.jpg?w=740&t=st=1701210441~exp=1701211041~hmac=33f44cb8698515f32ab41634904650dec2269bdb8f85cd80ba4b36bc6840659f"
