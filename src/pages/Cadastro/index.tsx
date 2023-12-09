@@ -10,8 +10,10 @@ import ModalEndereco from "../../components/ModalEndereco";
 import useModalEndereco from "../../hooks/useModalEndereco";
 import ModalFabricante from "../../components/ModalFabricante";
 import useModalFabricante from "../../hooks/useModalFabricante";
-import ModalUnidade from "../../components/ModalUnidade/index";
+import ModalUnidade from "../../components/ModalUnidade";
 import useModalUnidade from "../../hooks/useModalUnidade";
+import ModalModelo from "../../components/ModalModelo";
+import useModalModelo from "../../hooks/useModalModelo";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import api from "../../utils/api";
@@ -109,6 +111,7 @@ export default function Cadastro() {
   const {isOpenEndereco, toggleEndereco} = useModalEndereco();
   const {isOpenFabricante, toggleFabricante} = useModalFabricante();
   const {isOpenUnidade, toggleUnidade} = useModalUnidade();
+  const {isOpenModelo, toggleModelo} = useModalModelo();
 
 
 
@@ -203,25 +206,33 @@ export default function Cadastro() {
 
       <ModalEndereco isOpenEndereco={isOpenEndereco} toggleEndereco={toggleEndereco}>
         <div id="divformEndereco">
-          <h1> Cadastro Endereco</h1>
+          <h1> Cadastro de Endereco</h1>
           <form id="formEndereco"></form>
         </div>
       </ModalEndereco>
 
       <ModalFabricante isOpenFabricante={isOpenFabricante} toggleFabricante={toggleFabricante}>
         <div id="divformFabricante">
-          <h1>Cadastro Fabricante</h1>
+          <h1>Cadastro de Fabricante</h1>
           <form id="formFabricante"></form>
         </div>
       </ModalFabricante>
 
-      <ModalUnidade isOpenFabricante={isOpenUnidade} toggleFabricante={toggleUnidade}>
+      <ModalUnidade isOpenUnidade={isOpenUnidade} toggleUnidade={toggleUnidade}>
         <div id="divformUnidade">
           <h1>Cadastro de Unidade</h1>
           <form id="formUnidade"></form>
         </div>
 
       </ModalUnidade>
+
+      <ModalModelo isOpenModelo={isOpenModelo} toggleModelo={toggleModelo}>
+        <div id="divformModelo">
+          <h1>Cadastro de Modelo</h1>
+          <form id="formModelo"></form>
+        </div>
+
+      </ModalModelo>
 
 
 
@@ -326,7 +337,7 @@ export default function Cadastro() {
               </div>
             </article>
 
-            <article>
+            <article onClick={toggleModelo}>
               <figure>
                 <img
                   src="https://img.freepik.com/fotos-gratis/interior-de-um-grande-armazem-logistico-ai-generative_123827-23884.jpg?w=740&t=st=1701210441~exp=1701211041~hmac=33f44cb8698515f32ab41634904650dec2269bdb8f85cd80ba4b36bc6840659f"
