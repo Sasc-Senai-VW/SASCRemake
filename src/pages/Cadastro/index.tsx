@@ -37,6 +37,15 @@ export default function Cadastro() {
   const [data_compra, setData] = useState("");
   const [id_setor, setSetor] = useState("");
 
+  const [titulo, setTitulo] = useState("");
+  const [id_unidade, setUnidade] = useState("");
+
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [id_tipofuncionario, setTipoFuncionario] = useState("");
+  const [id_endereco, setEndereco] = useState("");
+
   const [cep, setCep] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [numero, setNumero] = useState("");
@@ -44,12 +53,13 @@ export default function Cadastro() {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
 
+  const [titulofabricante, setTituloFabricante] = useState("");
+  const [cnpj, setCnpj] = useState("");
 
-  
- 
-
-
-
+  const [modelo, setMudelo] = useState("");
+  const [consumo_nominal, setConsumoNominal] = useState("");
+  const [id_fabricante, setFabricante] = useState("");
+  const [id_tipoequipamento, setTipoEquipamento] = useState("");
 
   const handleSubmitEquipamento = (event) => {
     event.preventDefault();
@@ -59,6 +69,33 @@ export default function Cadastro() {
         id_modelo,
         data_compra,
         id_setor,
+      })
+      .then((response) => console.log(response.data))
+      .catch((error) => console.error(error));
+  };
+
+  const handleSubmitSetor = (event) => {
+    event.preventDefault();
+
+    axios
+      .post("http://localhost:8080/setor", {
+        titulo,
+        id_unidade,
+      })
+      .then((response) => console.log(response.data))
+      .catch((error) => console.error(error));
+  };
+
+  const handleSubmitFuncionario = (event) => {
+    event.preventDefault();
+
+    axios
+      .post("http://localhost:8080/funcionario", {
+        nome,
+        email,
+        senha,
+        id_setor,
+        id_tipofuncionario,
       })
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
@@ -75,6 +112,44 @@ export default function Cadastro() {
         bairro,
         cidade,
         estado,
+      })
+      .then((response) => console.log(response.data))
+      .catch((error) => console.error(error));
+  };
+
+  const handleSubmitFabricante = (event) => {
+    event.preventDefault();
+
+    axios
+      .post("http://localhost:8080/fabricante", {
+        titulo,
+        cnpj,
+      })
+      .then((response) => console.log(response.data))
+      .catch((error) => console.error(error));
+  };
+
+  const handleSubmitUnidade = (event) => {
+    event.preventDefault();
+
+    axios
+      .post("http://localhost:8080/unidade", {
+        nome,
+        id_endereco,
+      })
+      .then((response) => console.log(response.data))
+      .catch((error) => console.error(error));
+  };
+
+  const handleSubmitModelo = (event) => {
+    event.preventDefault();
+
+    axios
+      .post("http://localhost:8080/modelo", {
+        modelo,
+        consumo_nominal,
+        id_fabricante,
+        id_tipoequipamento,
       })
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
@@ -98,28 +173,77 @@ export default function Cadastro() {
     });
   }
 
+  const [unidades, setUnidades] = useState<any[]>([]);
+
+  function listarUnidades() {
+    api.get("unidade").then((response: any) => {
+      console.log(response.data);
+      setUnidades(response.data);
+    });
+  }
+
+  const [tiposfuncionarios, setTiposFuncionarios] = useState<any[]>([]);
+
+  function listarTiposFuncionarios() {
+    api.get("tipofuncionario").then((response: any) => {
+      console.log(response.data);
+      setTiposFuncionarios(response.data);
+    });
+  }
+
+  const [enderecos, setEnderecos] = useState<any[]>([]);
+
+  function listarEnderecos() {
+    api.get("endereco").then((response: any) => {
+      console.log(response.data);
+      setEnderecos(response.data);
+    });
+  }
+
+  const [fabricantes, setFabricantes] = useState<any[]>([]);
+
+  function listarFabricantes() {
+    api.get("fabricante").then((response: any) => {
+      console.log(response.data);
+      setFabricantes(response.data);
+    });
+  }
+
+  const [tiposequipamentos, setTiposEquipamentos] = useState<any[]>([]);
+
+  function listarTiposEquipamentos() {
+    api.get("tipoequipamento").then((response: any) => {
+      console.log(response.data);
+      setTiposEquipamentos(response.data);
+    });
+  }
+
   useEffect(() => {
     document.title = "Cadastro - SASC";
 
     listarModelos();
     listarSetores();
+    listarUnidades();
+    listarTiposFuncionarios();
+    listarEnderecos();
+    listarFabricantes();
+    listarTiposEquipamentos();
   }, []);
 
   const { isOpenEquipamento, toggleEquipamento } = useModalEquipamento();
-  const {isOpenSetor, toggleSetor} = useModalSetor();
-  const {isOpenFuncionario, toggleFuncionario} = useModalFuncionario();
-  const {isOpenEndereco, toggleEndereco} = useModalEndereco();
-  const {isOpenFabricante, toggleFabricante} = useModalFabricante();
-  const {isOpenUnidade, toggleUnidade} = useModalUnidade();
-  const {isOpenModelo, toggleModelo} = useModalModelo();
-
-
-
-
+  const { isOpenSetor, toggleSetor } = useModalSetor();
+  const { isOpenFuncionario, toggleFuncionario } = useModalFuncionario();
+  const { isOpenEndereco, toggleEndereco } = useModalEndereco();
+  const { isOpenFabricante, toggleFabricante } = useModalFabricante();
+  const { isOpenUnidade, toggleUnidade } = useModalUnidade();
+  const { isOpenModelo, toggleModelo } = useModalModelo();
 
   return (
     <>
-      <ModalEquipamento isOpenEquipamento={isOpenEquipamento} toggleEquipamento={toggleEquipamento}>
+      <ModalEquipamento
+        isOpenEquipamento={isOpenEquipamento}
+        toggleEquipamento={toggleEquipamento}
+      >
         <div id="divformEquipamento">
           <h1>Cadastro de Equipamentos</h1>
           <form id="formEquipamento" onSubmit={handleSubmitEquipamento}>
@@ -189,54 +313,385 @@ export default function Cadastro() {
       </ModalEquipamento>
 
       <ModalSetor isOpenSetor={isOpenSetor} toggleSetor={toggleSetor}>
-        <div id= "divformSetor">
-          <h1>Cadastro de Setor</h1>
-          <form id="formSetor">
+        <div id="divformEquipamento">
+          <h1>Cadastro de Setores</h1>
+          <form id="formEquipamento" onSubmit={handleSubmitSetor}>
+            <label>Titulo</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={titulo}
+              onChange={(event) => setTitulo(event.target.value)}
+            />
+
+            <label>Unidade</label>
+            <select
+              className="selectEquipamento"
+              name=""
+              id="selectsetor"
+              onChange={(event) => setUnidade(event.target.value)}
+            >
+              <option selected disabled value="">
+                Selecione
+              </option>
+              {unidades.map((unidade: any, index: number) => {
+                return (
+                  <option key={index} value={unidade.id}>
+                    {unidade.nome}
+                  </option>
+                );
+              })}
+            </select>
+
+            <button onClick={notify} id="submitEquipamento" type="submit">
+              CADASTRAR
+            </button>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
           </form>
         </div>
       </ModalSetor>
 
-      <ModalFuncionario isOpenFuncionario={isOpenFuncionario} toggleFuncionario={toggleFuncionario}>
-        <div id="divformFuncionario">
+      <ModalFuncionario
+        isOpenFuncionario={isOpenFuncionario}
+        toggleFuncionario={toggleFuncionario}
+      >
+        <div id="divformEquipamento">
           <h1>Cadastro de Funcionarios</h1>
-          <form id="formFuncionario"></form>
+          <form id="formEquipamento" onSubmit={handleSubmitFuncionario}>
+            <label>Nome</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={nome}
+              onChange={(event) => setNome(event.target.value)}
+            />
 
+            <label>Email</label>
+            <input
+              className="inputEquipamento"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+
+            <label>Senha</label>
+            <input
+              className="inputEquipamento"
+              type="password"
+              value={senha}
+              onChange={(event) => setSenha(event.target.value)}
+            />
+
+            <label>Setor</label>
+            <select
+              className="selectEquipamento"
+              name=""
+              id="selectsetor"
+              onChange={(event) => setSetor(event.target.value)}
+            >
+              <option selected disabled value="">
+                Selecione
+              </option>
+              {setores.map((setor: any, index: number) => {
+                return (
+                  <option key={index} value={setor.id}>
+                    {setor.titulo}
+                  </option>
+                );
+              })}
+            </select>
+
+            <label>Tipo Funcionario</label>
+            <select
+              className="selectEquipamento"
+              name=""
+              id="selectsetor"
+              onChange={(event) => setTipoFuncionario(event.target.value)}
+            >
+              <option selected disabled value="">
+                Selecione
+              </option>
+              {tiposfuncionarios.map((tipofuncionario: any, index: number) => {
+                return (
+                  <option key={index} value={tipofuncionario.id}>
+                    {tipofuncionario.categoria}
+                  </option>
+                );
+              })}
+            </select>
+
+            <button onClick={notify} id="submitEquipamento" type="submit">
+              CADASTRAR
+            </button>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+          </form>
         </div>
       </ModalFuncionario>
 
-      <ModalEndereco isOpenEndereco={isOpenEndereco} toggleEndereco={toggleEndereco}>
-        <div id="divformEndereco">
-          <h1> Cadastro de Endereco</h1>
-          <form id="formEndereco"></form>
+      <ModalEndereco
+        isOpenEndereco={isOpenEndereco}
+        toggleEndereco={toggleEndereco}
+      >
+        <div id="divformEquipamento">
+          <h1>Cadastro de Endereço</h1>
+          <form id="formEquipamento" onSubmit={handleSubmitEndereco}>
+            <label>CEP</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={cep}
+              onChange={(event) => setCep(event.target.value)}
+            />
+
+            <label>Logradouro</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={logradouro}
+              onChange={(event) => setLogradouro(event.target.value)}
+            />
+
+            <label>Numero</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={numero}
+              onChange={(event) => setNumero(event.target.value)}
+            />
+
+            <label>Bairro</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={bairro}
+              onChange={(event) => setBairro(event.target.value)}
+            />
+
+            <label>Cidade</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={cidade}
+              onChange={(event) => setCidade(event.target.value)}
+            />
+
+            <label>Estado</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={estado}
+              onChange={(event) => setEstado(event.target.value)}
+            />
+
+            <button onClick={notify} id="submitEquipamento" type="submit">
+              CADASTRAR
+            </button>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+          </form>
         </div>
       </ModalEndereco>
 
-      <ModalFabricante isOpenFabricante={isOpenFabricante} toggleFabricante={toggleFabricante}>
-        <div id="divformFabricante">
+      <ModalFabricante
+        isOpenFabricante={isOpenFabricante}
+        toggleFabricante={toggleFabricante}
+      >
+        <div id="divformEquipamento">
           <h1>Cadastro de Fabricante</h1>
-          <form id="formFabricante"></form>
+          <form id="formEquipamento" onSubmit={handleSubmitFabricante}>
+            <label>Titulo</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={titulo}
+              onChange={(event) => setTitulo(event.target.value)}
+            />
+
+            <label>Cnpj</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={cnpj}
+              onChange={(event) => setCnpj(event.target.value)}
+            />
+
+            <button onClick={notify} id="submitEquipamento" type="submit">
+              CADASTRAR
+            </button>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+          </form>
         </div>
       </ModalFabricante>
 
       <ModalUnidade isOpenUnidade={isOpenUnidade} toggleUnidade={toggleUnidade}>
-        <div id="divformUnidade">
-          <h1>Cadastro de Unidade</h1>
-          <form id="formUnidade"></form>
-        </div>
+        <div id="divformEquipamento">
+          <h1>Cadastro de Unidades</h1>
+          <form id="formEquipamento" onSubmit={handleSubmitUnidade}>
+            <label>Nome</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={nome}
+              onChange={(event) => setNome(event.target.value)}
+            />
 
+            <label>Endereço</label>
+            <select
+              className="selectEquipamento"
+              name=""
+              id="selectsetor"
+              onChange={(event) => setEndereco(event.target.value)}
+            >
+              <option selected disabled value="">
+                Selecione
+              </option>
+              {enderecos.map((endereco: any, index: number) => {
+                return (
+                  <option key={index} value={endereco.id}>
+                    {endereco.logradouro}
+                  </option>
+                );
+              })}
+            </select>
+
+            <button onClick={notify} id="submitEquipamento" type="submit">
+              CADASTRAR
+            </button>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+          </form>
+        </div>
       </ModalUnidade>
 
       <ModalModelo isOpenModelo={isOpenModelo} toggleModelo={toggleModelo}>
-        <div id="divformModelo">
-          <h1>Cadastro de Modelo</h1>
-          <form id="formModelo"></form>
+        <div id="divformEquipamento">
+          <h1>Cadastro de Modelos</h1>
+          <form id="formEquipamento" onSubmit={handleSubmitModelo}>
+            <label>Modelo</label>
+            <input
+              className="inputEquipamento"
+              type="string"
+              value={modelo}
+              onChange={(event) => setMudelo(event.target.value)}
+            />
+
+            <label>Consumo Nominal</label>
+            <input
+              className="inputEquipamento"
+              type="decimal"
+              value={consumo_nominal}
+              onChange={(event) => setConsumoNominal(event.target.value)}
+            />
+
+            <label>Fabricante</label>
+            <select
+              className="selectEquipamento"
+              name=""
+              id="selectsetor"
+              onChange={(event) => setFabricante(event.target.value)}
+            >
+              <option selected disabled value="">
+                Selecione
+              </option>
+              {fabricantes.map((fabricante: any, index: number) => {
+                return (
+                  <option key={index} value={fabricante.id}>
+                    {fabricante.titulo}
+                  </option>
+                );
+              })}
+            </select>
+
+            <label>Tipo Equipamento</label>
+            <select
+              className="selectEquipamento"
+              name=""
+              id="selectsetor"
+              onChange={(event) => setTipoEquipamento(event.target.value)}
+            >
+              <option selected disabled value="">
+                Selecione
+              </option>
+              {tiposequipamentos.map((tipoequipamento: any, index: number) => {
+                return (
+                  <option key={index} value={tipoequipamento.id}>
+                    {tipoequipamento.tipo}
+                  </option>
+                );
+              })}
+            </select>
+
+            <button onClick={notify} id="submitEquipamento" type="submit">
+              CADASTRAR
+            </button>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+          </form>
         </div>
-
       </ModalModelo>
-
-
-
-
 
       <div id="cadastro">
         <div className="centering">
