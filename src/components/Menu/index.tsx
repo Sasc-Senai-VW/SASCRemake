@@ -15,7 +15,6 @@ export default function Menu() {
       <nav id="menuLateral">
         <div id="sidebarCima">
           <img id="logoMenu" src={logo} alt="SASC LOGO" />
-          <h3>SASC</h3>
         </div>
         <div id="sidebarLinks">
           <ul>

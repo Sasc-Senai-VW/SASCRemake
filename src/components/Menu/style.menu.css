@@ -5,7 +5,8 @@
   background-color: var(--preto);
   width: 20%;
   height: 100vh;
-  border-radius: 0 15% 15% 0;
+  border-radius: 0 18% 18% 0;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.358);
 }
 
 #sidebarCima {
@@ -15,19 +16,14 @@
   width: 100%;
   text-align: center;
   margin-top: 25px;
+  margin-bottom: 15%;
 }
 
 #sidebarCima img {
+  margin-top: 5%;
   display: flex;
   align-items: center;
   width: 25%;
-}
-
-#sidebarCima h3 {
-  color: var(--branco);
-  font-size: 3vw;
-  display: flex;
-  align-items: center;
 }
 
 #sidebarLinks ul {
