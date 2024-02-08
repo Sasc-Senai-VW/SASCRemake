@@ -1,9 +1,19 @@
 import "./style.cardequipamento.css";
 import { FaPen } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import axios from "axios";
 
 export default function CardEquipamento(props: any) {
   props.equipamento;
+
+  const buttonDelete = (event) => {
+    event.preventDefault();
+
+    axios
+      .delete("http://localhost:8080/modelo", {})
+      .then((response) => console.log(response.data))
+      .catch((error) => console.error(error));
+  };
 
   return (
     <>
@@ -18,9 +28,14 @@ export default function CardEquipamento(props: any) {
           <span id="edit" className="buttonsCardEquipamento">
             <FaPen />
           </span>
-          <span id="delete" className="buttonsCardEquipamento">
+
+          <button
+            onClick={buttonDelete}
+            id="delete"
+            className="buttonsCardEquipamento"
+          >
             <FaTrash />
-          </span>
+          </button>
         </td>
       </tr>
     </>

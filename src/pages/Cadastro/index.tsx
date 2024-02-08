@@ -65,11 +65,7 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/equipamento", {
-        id_modelo,
-        data_compra,
-        id_setor,
-      })
+      .post("http://localhost:8080/equipamento", {})
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
   };
