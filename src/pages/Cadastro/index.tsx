@@ -65,7 +65,7 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/equipamento", {})
+      .post("https://apisasc.azurewebsites.net/equipamento", {})
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
   };
@@ -74,7 +74,7 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/setor", {
+      .post("https://apisasc.azurewebsites.net/setor", {
         titulo,
         id_unidade,
       })
@@ -86,7 +86,7 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/funcionario", {
+      .post("https://apisasc.azurewebsites.net/funcionario", {
         nome,
         email,
         senha,
@@ -101,7 +101,7 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/endereco", {
+      .post("https://apisasc.azurewebsites.net/endereco", {
         cep,
         logradouro,
         numero,
@@ -117,7 +117,7 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/fabricante", {
+      .post("https://apisasc.azurewebsites.net/fabricante", {
         titulo,
         cnpj,
       })
@@ -129,7 +129,7 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/unidade", {
+      .post("https://apisasc.azurewebsites.net/unidade", {
         nome,
         id_endereco,
       })
@@ -141,7 +141,7 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/modelo", {
+      .post("https://apisasc.azurewebsites.net/modelo", {
         modelo,
         consumo_nominal,
         id_fabricante,
@@ -701,10 +701,7 @@ export default function Cadastro() {
               </figure>
               <div className="article-preview">
                 <h2>Equipamento</h2>
-                <p>
-                  Cadastro de equipamentos como: Servidores, switches, desktops,
-                  acess points, etc.
-                </p>
+                <p>Cadastro de equipamentos como: Servidores, switches, etc.</p>
               </div>
             </article>
 
@@ -717,10 +714,7 @@ export default function Cadastro() {
               </figure>
               <div className="article-preview">
                 <h2>Setor</h2>
-                <p>
-                  Cadastro de equipamentos como: Servidores, switches, desktops,
-                  acess points, etc.
-                </p>
+                <p>Cadastro de setores baseado na localidade da unidade.</p>
               </div>
             </article>
 
@@ -733,10 +727,7 @@ export default function Cadastro() {
               </figure>
               <div className="article-preview">
                 <h2>Funcionário</h2>
-                <p>
-                  Cadastro de equipamentos como: Servidores, switches, desktops,
-                  acess points, etc.
-                </p>
+                <p>Cadastro de funcionarios, definindo o tipo de cada um.</p>
               </div>
             </article>
 
@@ -749,10 +740,7 @@ export default function Cadastro() {
               </figure>
               <div className="article-preview">
                 <h2>Endereço</h2>
-                <p>
-                  Cadastro de equipamentos como: Servidores, switches, desktops,
-                  acess points, etc.
-                </p>
+                <p>Enderecos caso haja uma nova Volkswagen.</p>
               </div>
             </article>
 
@@ -765,10 +753,7 @@ export default function Cadastro() {
               </figure>
               <div className="article-preview">
                 <h2>Fabricante</h2>
-                <p>
-                  Cadastro de equipamentos como: Servidores, switches, desktops,
-                  acess points, etc.
-                </p>
+                <p>Cadastro de fabricantes de equipamentos.</p>
               </div>
             </article>
 
@@ -781,10 +766,7 @@ export default function Cadastro() {
               </figure>
               <div className="article-preview">
                 <h2>Unidade</h2>
-                <p>
-                  Cadastro de equipamentos como: Servidores, switches, desktops,
-                  acess points, etc.
-                </p>
+                <p>Unidade relacionada ao endereco.</p>
               </div>
             </article>
 
@@ -797,10 +779,7 @@ export default function Cadastro() {
               </figure>
               <div className="article-preview">
                 <h2>Modelo</h2>
-                <p>
-                  Cadastro de equipamentos como: Servidores, switches, desktops,
-                  acess points, etc.
-                </p>
+                <p>Cadastro de modelos switch / workstations.</p>
               </div>
             </article>
           </div>

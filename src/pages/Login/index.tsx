@@ -21,7 +21,7 @@ function Login() {
 
     const funcionario: object = {
       email: email,
-      password: senha,
+      senha: senha,
     };
     // post envia
     // response resposta da api
@@ -35,8 +35,8 @@ function Login() {
         // localStorage.setItem('user', response.data)
 
         //npm i react-secure-storage extensao para salvar no localstorage
-        secureLocalStorage.setItem("user", response.data);
-        navigate("/Home");
+        secureLocalStorage.setItem("funcionario", response.data);
+        navigate("/home");
 
         // Recarrega a pagina e resgate no local storage o funcionario logado
         navigate(0);

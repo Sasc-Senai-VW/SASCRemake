@@ -10,7 +10,7 @@ export default function CardEquipamento(props: any) {
     event.preventDefault();
 
     axios
-      .delete("http://localhost:8080/modelo", {})
+      .delete("https://apisasc.azurewebsites.net/modelo", {})
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
   };

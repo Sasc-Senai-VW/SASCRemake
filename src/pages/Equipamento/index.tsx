@@ -48,7 +48,7 @@ export default function Equipamento() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/equipamento", {
+      .post("https://apisasc.azurewebsites.net/equipamento", {
         id_modelo,
         data_compra,
         id_setor,
@@ -167,7 +167,7 @@ export default function Equipamento() {
                   id={equipamento.id}
                   modelo={equipamento.modelo.modelo}
                   fabricante={equipamento.modelo.fabricante.titulo}
-                  consumo_nominal={equipamento.modelo.consumoNominal}
+                  consumo_nominal={equipamento.modelo.consumo_nominal}
                   data_compra={equipamento.data_compra}
                   setor={equipamento.setor.titulo}
                 />
