@@ -41,7 +41,7 @@ export default function Funcionario() {
                   id={funcionario.id}
                   nome={funcionario.nome}
                   email={funcionario.email}
-                  tituloSetor={funcionario.setor.titulo}
+                  titulo={funcionario.setor.titulo}
                   tipofuncionario={funcionario.tipofuncionario.categoria}
                 />
               );

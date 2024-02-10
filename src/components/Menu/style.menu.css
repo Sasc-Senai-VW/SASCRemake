@@ -5,6 +5,7 @@
   background-color: var(--preto);
   width: 20%;
   height: 100vh;
+  border-radius: 0 15% 15% 0;
 }
 
 #sidebarCima {
@@ -78,3 +79,6 @@
 #sairLink a:hover {
   background-color: var(--rosa);
 }
+
+#sairLink {
+  padding-top: 20%;

@@ -1,0 +1,21 @@
+.linhasHome{
+    width: 70%;
+    margin-left: 25%;
+}
+  
+#linha1{
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#dashboradHome{
+  margin-top: 5%;
+  width: 100%;
+  border-radius: 0 25px 25px 25px;
+  box-shadow: 10px 10px 25px rgb(0, 0, 0);
+}
+
+.videoYoutube{
+  width: 48%;
+}

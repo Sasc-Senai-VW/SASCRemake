@@ -10,11 +10,13 @@ import Dashboard from "./pages/Dashboard";
 import Equipamento from "./pages/Equipamento";
 import Setor from "./pages/Setor";
 import Funcionario from "./pages/Funcionario";
+import Login from "./pages/Login";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route
           path="home"
           element={

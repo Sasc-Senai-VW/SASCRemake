@@ -11,7 +11,7 @@ export default function CardFuncionario(props: any) {
         <td>{props.id}</td>
         <td>{props.nome}</td>
         <td>{props.email}</td>
-        <td>{props.tituloSetor}</td>
+        <td>{props.titulo}</td>
         <td>{props.tipofuncionario}</td>
         <td id="acoes">
           <span id="edit" className="buttonsCardEquipamento">
