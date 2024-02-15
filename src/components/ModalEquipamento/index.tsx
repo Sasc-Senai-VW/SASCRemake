@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import "./style.modalequipamento.css";
 
 interface ModalType {

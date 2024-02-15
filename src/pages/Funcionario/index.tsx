@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./style.funcionario.css";
 import api from "../../utils/api";
-import React from "react";
 import CardFuncionario from "../../components/CardFuncionario";
 
 export default function Funcionario() {

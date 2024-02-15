@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./style.setor.css";
 import api from "../../utils/api";
-import React from "react";
 import CardSetor from "../../components/CardSetor";
 
 export default function Setor() {
@@ -36,7 +35,7 @@ export default function Setor() {
             </tr>
           </thead>
           <tbody id="bodyTabela">
-            {setores.map((setor: any, index: any) => {
+            {setores.map((setor: any, _index: any) => {
               return (
                 <CardSetor
                   id={setor.id}

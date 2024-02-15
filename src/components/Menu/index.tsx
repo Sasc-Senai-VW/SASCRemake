@@ -1,5 +1,5 @@
 import "./style.menu.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/LogoSASCBasic1 2.svg";
 import { FaHome } from "react-icons/fa";
 import { FaCirclePlus } from "react-icons/fa6";
@@ -8,8 +8,16 @@ import { FaBuilding } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { RiLogoutCircleFill } from "react-icons/ri";
 import { FaChartArea } from "react-icons/fa";
+import secureLocalStorage from "react-secure-storage";
 
 export default function Menu() {
+  const navigate = useNavigate();
+
+  function deslogar() {
+    secureLocalStorage.removeItem("user");
+    navigate("/login");
+    navigate(0);
+  }
   return (
     <>
       <nav id="menuLateral">
@@ -68,7 +76,7 @@ export default function Menu() {
               </Link>
             </li>
             <li id="sairLink">
-              <Link to="/home">
+              <Link to={"/"} onClick={deslogar}>
                 <div className="iconMenu">
                   <RiLogoutCircleFill />
                 </div>

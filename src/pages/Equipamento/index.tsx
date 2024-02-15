@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./style.equipamento.css";
 import api from "../../utils/api";
 import CardEquipamento from "../../components/CardEquipamento";
-import React from "react";
 
 import ModalEquipamento from "../../components/ModalEquipamento";
 import useModalEquipamento from "../../hooks/useModalEquipamento";
@@ -44,7 +43,7 @@ export default function Equipamento() {
   const [data_compra, setData] = useState("");
   const [id_setor, setSetor] = useState("");
 
-  const handleSubmitEquipamento = (event) => {
+  const handleSubmitEquipamento = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
@@ -75,78 +74,8 @@ export default function Equipamento() {
     });
   }
 
-  const { isOpen, toggleEquipamento } = useModalEquipamento();
-
   return (
     <>
-      <ModalEquipamento isOpen={isOpen} toggleEquipamento={toggleEquipamento}>
-        <div id="divformEquipamento">
-          <h1>Cadastro de Equipamentos</h1>
-          <form id="formEquipamento" onSubmit={handleSubmitEquipamento}>
-            <label>Modelo</label>
-            <select
-              className="selectEquipamento"
-              name=""
-              id="selectModelo"
-              onChange={(event) => setModelo(event.target.value)}
-            >
-              <option selected disabled value="">
-                Selecione
-              </option>
-              {modelos.map((modelo: any, index: number) => {
-                return (
-                  <option key={index} value={modelo.id}>
-                    {modelo.modelo}
-                  </option>
-                );
-              })}
-            </select>
-
-            <label>Data</label>
-            <input
-              className="inputEquipamento"
-              type="date"
-              value={data_compra}
-              onChange={(event) => setData(event.target.value)}
-            />
-
-            <label>Setor</label>
-            <select
-              className="selectEquipamento"
-              name=""
-              id="selectsetor"
-              onChange={(event) => setSetor(event.target.value)}
-            >
-              <option selected disabled value="">
-                Selecione
-              </option>
-              {setores.map((setor: any, index: number) => {
-                return (
-                  <option key={index} value={setor.id}>
-                    {setor.titulo}
-                  </option>
-                );
-              })}
-            </select>
-
-            <button onClick={notify} id="submitEquipamento" type="submit">
-              CADASTRAR
-            </button>
-            <ToastContainer
-              position="bottom-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="dark"
-            />
-          </form>
-        </div>
-      </ModalEquipamento>
       <div id="equipamento">
         <table id="tabela">
           <thead>
