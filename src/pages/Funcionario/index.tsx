@@ -34,7 +34,7 @@ export default function Funcionario() {
             </tr>
           </thead>
           <tbody id="bodyTabela">
-            {funcionarios.map((funcionario: any, index: any) => {
+            {funcionarios.map((funcionario: any, _index: any) => {
               return (
                 <CardFuncionario
                   id={funcionario.id}

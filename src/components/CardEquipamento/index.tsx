@@ -6,7 +6,7 @@ import axios from "axios";
 export default function CardEquipamento(props: any) {
   props.equipamento;
 
-  const buttonDelete = (event) => {
+  const buttonDelete = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
 
     axios

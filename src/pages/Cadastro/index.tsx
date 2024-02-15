@@ -33,7 +33,7 @@ export default function Cadastro() {
       theme: "light",
     });
 
-  const [id_modelo, setModelo] = useState("");
+  const [, setModelo] = useState("");
   const [data_compra, setData] = useState("");
   const [id_setor, setSetor] = useState("");
 
@@ -53,7 +53,7 @@ export default function Cadastro() {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
 
-  const [titulofabricante, setTituloFabricante] = useState("");
+  const [] = useState("");
   const [cnpj, setCnpj] = useState("");
 
   const [modelo, setMudelo] = useState("");

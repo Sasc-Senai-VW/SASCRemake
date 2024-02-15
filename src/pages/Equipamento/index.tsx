@@ -3,10 +3,6 @@ import "./style.equipamento.css";
 import api from "../../utils/api";
 import CardEquipamento from "../../components/CardEquipamento";
 
-import ModalEquipamento from "../../components/ModalEquipamento";
-import useModalEquipamento from "../../hooks/useModalEquipamento";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Equipamento() {
@@ -27,36 +23,7 @@ export default function Equipamento() {
     listarSetores();
   }, []);
 
-  const notify = () =>
-    toast.success("Cadastrado", {
-      position: "bottom-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-
-  const [id_modelo, setModelo] = useState("");
-  const [data_compra, setData] = useState("");
-  const [id_setor, setSetor] = useState("");
-
-  const handleSubmitEquipamento = (event: { preventDefault: () => void }) => {
-    event.preventDefault();
-
-    axios
-      .post("https://apisasc.azurewebsites.net/equipamento", {
-        id_modelo,
-        data_compra,
-        id_setor,
-      })
-      .then((response) => console.log(response.data))
-      .catch((error) => console.error(error));
-  };
-
-  const [modelos, setModelos] = useState<any[]>([]);
+  const [, setModelos] = useState<any[]>([]);
 
   function listarModelos() {
     api.get("modelo").then((response: any) => {
@@ -65,7 +32,7 @@ export default function Equipamento() {
     });
   }
 
-  const [setores, setSetores] = useState<any[]>([]);
+  const [, setSetores] = useState<any[]>([]);
 
   function listarSetores() {
     api.get("setor").then((response: any) => {
@@ -90,7 +57,7 @@ export default function Equipamento() {
             </tr>
           </thead>
           <tbody id="bodyTabela">
-            {equipamentos.map((equipamento: any, index: any) => {
+            {equipamentos.map((equipamento: any) => {
               return (
                 <CardEquipamento
                   id={equipamento.id}
