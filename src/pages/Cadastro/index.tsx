@@ -61,7 +61,7 @@ export default function Cadastro() {
   const [id_fabricante, setFabricante] = useState("");
   const [id_tipoequipamento, setTipoEquipamento] = useState("");
 
-  const handleSubmitEquipamento = (event) => {
+  const handleSubmitEquipamento = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
@@ -70,7 +70,7 @@ export default function Cadastro() {
       .catch((error) => console.error(error));
   };
 
-  const handleSubmitSetor = (event) => {
+  const handleSubmitSetor = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
@@ -82,7 +82,7 @@ export default function Cadastro() {
       .catch((error) => console.error(error));
   };
 
-  const handleSubmitFuncionario = (event) => {
+  const handleSubmitFuncionario = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
@@ -97,7 +97,7 @@ export default function Cadastro() {
       .catch((error) => console.error(error));
   };
 
-  const handleSubmitEndereco = (event) => {
+  const handleSubmitEndereco = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
@@ -113,7 +113,7 @@ export default function Cadastro() {
       .catch((error) => console.error(error));
   };
 
-  const handleSubmitFabricante = (event) => {
+  const handleSubmitFabricante = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
@@ -125,7 +125,7 @@ export default function Cadastro() {
       .catch((error) => console.error(error));
   };
 
-  const handleSubmitUnidade = (event) => {
+  const handleSubmitUnidade = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
@@ -137,7 +137,7 @@ export default function Cadastro() {
       .catch((error) => console.error(error));
   };
 
-  const handleSubmitModelo = (event) => {
+  const handleSubmitModelo = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
