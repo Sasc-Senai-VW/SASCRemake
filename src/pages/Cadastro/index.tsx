@@ -21,6 +21,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Cadastro() {
+  function reload() {
+    window.location.reload();
+  }
   const notify = () =>
     toast.success("Cadastrado", {
       position: "bottom-center",
@@ -33,7 +36,7 @@ export default function Cadastro() {
       theme: "light",
     });
 
-  const [, setModelo] = useState("");
+  const [id_modelo, setModelo] = useState("");
   const [data_compra, setData] = useState("");
   const [id_setor, setSetor] = useState("");
 
@@ -65,7 +68,11 @@ export default function Cadastro() {
     event.preventDefault();
 
     axios
-      .post("https://apisasc.azurewebsites.net/equipamento", {})
+      .post("https://apisasc.azurewebsites.net/equipamento", {
+        id_modelo,
+        data_compra,
+        id_setor,
+      })
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
   };
@@ -289,7 +296,14 @@ export default function Cadastro() {
               })}
             </select>
 
-            <button onClick={notify} id="submitEquipamento" type="submit">
+            <button
+              onClick={() => {
+                reload();
+                notify();
+              }}
+              id="submitEquipamento"
+              type="submit"
+            >
               CADASTRAR
             </button>
             <ToastContainer
@@ -670,7 +684,12 @@ export default function Cadastro() {
               })}
             </select>
 
-            <button onClick={notify} id="submitEquipamento" type="submit">
+            <button
+              onClick={notify}
+              // formAction="#"
+              id="submitEquipamento"
+              type="submit"
+            >
               CADASTRAR
             </button>
             <ToastContainer

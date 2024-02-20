@@ -41,31 +41,46 @@ export default function Equipamento() {
     });
   }
 
+  function excluirEquipamento(idEquipamento: string) {
+    api
+      .delete(`equipamento/${idEquipamento}`)
+      .then(() => {
+        const novaLista = equipamentos.filter(
+          (equipamento) => equipamento.id !== idEquipamento
+        );
+        setEquipamentos(novaLista);
+      })
+      .catch((error) => {
+        console.error("Erro ao excluir funcionário:", error);
+      });
+  }
+
   return (
     <>
       <div id="equipamento">
         <table id="tabela">
           <thead>
             <tr id="coluna">
-              <th scope="col">ID</th>
+              {/* <th scope="col">ID</th> */}
               <th scope="col">MODELO</th>
               <th scope="col">FABRICANTE</th>
               <th scope="col">CONSUMO NOMINAL</th>
               <th scope="col">DATA</th>
               <th scope="col">SETOR</th>
-              <th scope="col">AÇÕES</th>
+              <th scope="col">EXCLUIR</th>
             </tr>
           </thead>
           <tbody id="bodyTabela">
             {equipamentos.map((equipamento: any) => {
               return (
                 <CardEquipamento
-                  id={equipamento.id}
+                  // id={equipamento.id}
                   modelo={equipamento.modelo.modelo}
                   fabricante={equipamento.modelo.fabricante.titulo}
                   consumo_nominal={equipamento.modelo.consumo_nominal}
                   data_compra={equipamento.data_compra}
                   setor={equipamento.setor.titulo}
+                  excluirEquipamento={excluirEquipamento}
                 />
               );
             })}

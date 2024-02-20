@@ -6,7 +6,7 @@ import axios from "axios";
 export default function CardEquipamento(props: any) {
   props.equipamento;
 
-  const buttonDelete = (event: { preventDefault: () => void; }) => {
+  const buttonDelete = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     axios
@@ -18,24 +18,24 @@ export default function CardEquipamento(props: any) {
   return (
     <>
       <tr id="linhas">
-        <td>{props.id}</td>
+        {/* <td>{props.id}</td> */}
         <td>{props.modelo}</td>
         <td>{props.fabricante}</td>
         <td>{props.consumo_nominal}</td>
         <td>{props.data_compra}</td>
         <td>{props.setor}</td>
         <td id="acoes">
-          <span id="edit" className="buttonsCardEquipamento">
+          {/* <span id="edit" className="buttonsCardEquipamento">
             <FaPen />
-          </span>
+          </span> */}
 
-          <button
-            onClick={buttonDelete}
+          <span
             id="delete"
             className="buttonsCardEquipamento"
+            onClick={() => props.excluirEquipamento(props.id)}
           >
             <FaTrash />
-          </button>
+          </span>
         </td>
       </tr>
     </>

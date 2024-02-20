@@ -8,17 +8,21 @@ export default function CardSetor(props: any) {
   return (
     <>
       <tr id="linhas">
-        <td>{props.id}</td>
+        {/* <td>{props.id}</td> */}
         <td>{props.titulo}</td>
         <td>{props.nomeUnidade}</td>
         <td>{props.cep}</td>
         <td>{props.logradouro}</td>
         <td>{props.estado}</td>
         <td id="acoes">
-          <span id="edit" className="buttonsCardEquipamento">
+          {/* <span id="edit" className="buttonsCardEquipamento">
             <FaPen />
-          </span>
-          <span id="delete" className="buttonsCardEquipamento">
+          </span> */}
+          <span
+            id="delete"
+            className="buttonsCardEquipamento"
+            onClick={() => props.excluirsetor(props.id)}
+          >
             <FaTrash />
           </span>
         </td>
