@@ -129,7 +129,7 @@
 }
 
 .inputlogin:focus {
-  outline: 2px solid var(--cinzaescuro);
+  outline: none;
 }
 
 .label-input {

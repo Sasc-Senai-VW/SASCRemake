@@ -13,9 +13,26 @@
   margin-top: 5%;
   width: 100%;
   border-radius: 0 25px 25px 25px;
-  box-shadow: 10px 10px 25px rgb(0, 0, 0);
 }
 
 .videoYoutube{
   width: 48%;
+}
+
+
+#frameCredito{
+  border-radius: 0 25px 25px 25px;
+  border: solid 0.5px rgba(255, 255, 255, 0.49);
+  margin-top: 3%;
+  width: 70%;
+  height: 350px;
+  background-image: url(../../assets/img/EntendaCarbono.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#frameCredito a{
+  background-color: yellowgreen;
+  width: 100%;
+  height: 100%;  
 }
