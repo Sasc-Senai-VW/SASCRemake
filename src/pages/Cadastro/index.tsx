@@ -21,9 +21,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Cadastro() {
-  function reload() {
-    window.location.reload();
-  }
   const notify = () =>
     toast.success("Cadastrado", {
       position: "bottom-center",
@@ -296,14 +293,7 @@ export default function Cadastro() {
               })}
             </select>
 
-            <button
-              onClick={() => {
-                reload();
-                notify();
-              }}
-              id="submitEquipamento"
-              type="submit"
-            >
+            <button onClick={notify} id="submitEquipamento" type="submit">
               CADASTRAR
             </button>
             <ToastContainer

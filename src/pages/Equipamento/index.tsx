@@ -61,7 +61,7 @@ export default function Equipamento() {
         <table id="tabela">
           <thead>
             <tr id="coluna">
-              {/* <th scope="col">ID</th> */}
+              <th scope="col">ID</th>
               <th scope="col">MODELO</th>
               <th scope="col">FABRICANTE</th>
               <th scope="col">CONSUMO NOMINAL</th>
@@ -74,7 +74,7 @@ export default function Equipamento() {
             {equipamentos.map((equipamento: any) => {
               return (
                 <CardEquipamento
-                  // id={equipamento.id}
+                  id={equipamento.id}
                   modelo={equipamento.modelo.modelo}
                   fabricante={equipamento.modelo.fabricante.titulo}
                   consumo_nominal={equipamento.modelo.consumo_nominal}

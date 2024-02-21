@@ -37,7 +37,7 @@ export default function Setor() {
         <table id="tabela">
           <thead>
             <tr id="coluna">
-              {/* <th scope="col">ID</th> */}
+              <th scope="col">ID</th>
               <th scope="col">TITULO</th>
               <th scope="col">UNIDADE</th>
               <th scope="col">CEP</th>
@@ -50,7 +50,7 @@ export default function Setor() {
             {setores.map((setor: any, _index: any) => {
               return (
                 <CardSetor
-                  // id={setor.id}
+                  id={setor.id}
                   titulo={setor.titulo}
                   nomeUnidade={setor.unidade.nome}
                   cep={setor.unidade.endereco.cep}

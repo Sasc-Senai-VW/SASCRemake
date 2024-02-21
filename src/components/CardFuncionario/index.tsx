@@ -11,7 +11,7 @@ export default function CardFuncionario(props: any) {
   return (
     <>
       <tr id="linhas">
-        {/* <td>{props.id}</td> */}
+        <td>{props.id}</td>
         <td>{props.nome}</td>
         <td>{props.email}</td>
         <td>{props.titulo}</td>

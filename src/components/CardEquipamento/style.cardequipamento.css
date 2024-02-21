@@ -11,4 +11,5 @@
 
 #delete {
   color: var(--rosa);
+  cursor: pointer;
 }

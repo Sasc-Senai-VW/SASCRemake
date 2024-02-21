@@ -18,7 +18,7 @@ export default function CardEquipamento(props: any) {
   return (
     <>
       <tr id="linhas">
-        {/* <td>{props.id}</td> */}
+        <td>{props.id}</td>
         <td>{props.modelo}</td>
         <td>{props.fabricante}</td>
         <td>{props.consumo_nominal}</td>

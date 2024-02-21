@@ -39,7 +39,7 @@ export default function Funcionario() {
         <table id="tabela">
           <thead>
             <tr id="coluna">
-              {/* <th scope="col">ID</th> */}
+              <th scope="col">ID</th>
               <th scope="col">NOME</th>
               <th scope="col">EMAIL</th>
               <th scope="col">UNIDADE</th>
@@ -51,7 +51,7 @@ export default function Funcionario() {
             {funcionarios.map((funcionario: any, _index: any) => {
               return (
                 <CardFuncionario
-                  // id={funcionario.id}
+                  id={funcionario.id}
                   nome={funcionario.nome}
                   email={funcionario.email}
                   titulo={funcionario.setor.titulo}

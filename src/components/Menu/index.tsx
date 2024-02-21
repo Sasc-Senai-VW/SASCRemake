@@ -15,7 +15,7 @@ export default function Menu() {
 
   function deslogar() {
     secureLocalStorage.removeItem("user");
-    navigate("/login");
+    navigate("/");
     navigate(0);
   }
   return (

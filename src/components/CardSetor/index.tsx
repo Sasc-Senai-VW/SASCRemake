@@ -8,7 +8,7 @@ export default function CardSetor(props: any) {
   return (
     <>
       <tr id="linhas">
-        {/* <td>{props.id}</td> */}
+        <td>{props.id}</td>
         <td>{props.titulo}</td>
         <td>{props.nomeUnidade}</td>
         <td>{props.cep}</td>
