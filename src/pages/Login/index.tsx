@@ -67,7 +67,6 @@ function Login() {
         </div>
         <div className="second-column">
           <h2 className="title title-second">SASC</h2>
-          <div className="social-media"></div>
           <p className="description description-second">
             Preencha as informações:
           </p>

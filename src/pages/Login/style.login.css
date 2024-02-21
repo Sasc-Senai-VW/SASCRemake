@@ -6,9 +6,9 @@
   height: 100vh;
   background: rgb(1, 181, 116);
   background: linear-gradient(
-    143deg,
-    rgba(1, 181, 116, 1) 0%,
-    rgba(207, 75, 131, 1) 100%
+    -35deg,
+    rgba(1, 181, 116, 0.5) 0%,
+    rgba(207, 75, 131, 0.5) 100%
   );
 }
 .icons {
@@ -16,7 +16,7 @@
   padding: 0 5px;
 }
 .content {
-  background-color: #fff;
+  background-color: var(--verde);
   border-radius: 15px;
   width: 75%;
   height: 75%;
@@ -32,7 +32,7 @@
 .content::before {
   content: "";
   position: absolute;
-  background-color: var(--verde);
+  background-color: var(--branco);
   width: 40%;
   height: 100%;
   border-top-left-radius: 15px;
@@ -46,10 +46,10 @@
   text-transform: capitalize;
 }
 .title-primary {
-  color: #fff;
+  color: var(--verde);
 }
 .title-second {
-  color: var(--verde);
+  color: var(--branco);
 }
 .description {
   font-size: 14px;
@@ -57,40 +57,42 @@
   line-height: 30px;
 }
 .description-primary {
-  color: #fff;
+  color: var(--verde);
 }
 .description-second {
-  color: #7f8c8d;
+  color: var(--branco);
 }
 .btn {
+  display: flex;
+  justify-content: center;
   border-radius: 15px;
   text-transform: uppercase;
-  color: #fff;
-  font-size: 10px;
-  padding: 10px 50px;
+  color: var(--branco);
+  font-size: 80%;
+  padding: 10px;
   cursor: pointer;
   font-weight: bold;
   width: 150px;
   align-self: center;
   border: none;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 .btn-primary {
   background-color: transparent;
-  border: 1px solid #fff;
+  border: 1px solid var(--branco);
   transition: background-color 0.5s;
 }
 .btn-primary:hover {
-  background-color: #fff;
+  background-color: var(--branco);
   color: var(--verde);
 }
 .btn-second {
-  background-color: var(--verde);
-  border: 1px solid var(--verde);
+  background-color: var(--rosa);
+  border: 1px solid var(--rosa);
   transition: background-color 0.5s;
 }
 .btn-second:hover {
-  background-color: #fff;
+  background-color: var(--branco);
   border: 1px solid var(--verde);
   color: var(--verde);
 }
@@ -127,7 +129,7 @@
 }
 
 .inputlogin:focus {
-  outline: 2px solid var(--verde);
+  outline: 2px solid var(--cinzaescuro);
 }
 
 .label-input {
