@@ -1,18 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: "Open Sans", sans-serif;
-}
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
+
   /* align-items: center; */
-  height: 120vh;
+  height: 100vh;
+  background: rgb(1, 181, 116);
+  background: linear-gradient(
+    143deg,
+    rgba(1, 181, 116, 1) 0%,
+    rgba(207, 75, 131, 1) 100%
+  );
 }
 .icons {
   color: #7f8c8d;
@@ -21,16 +18,21 @@ body {
 .content {
   background-color: #fff;
   border-radius: 15px;
-  width: 960px;
-  height: 50%;
+  width: 75%;
+  height: 75%;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  display: flex;
+  align-self: center;
+  -webkit-box-shadow: 0px 0px 125px -50px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 125px -50px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 125px -50px rgba(0, 0, 0, 0.75);
 }
 .content::before {
   content: "";
   position: absolute;
-  background-color: #58af9b;
+  background-color: var(--verde);
   width: 40%;
   height: 100%;
   border-top-left-radius: 15px;
@@ -47,7 +49,7 @@ body {
   color: #fff;
 }
 .title-second {
-  color: #58af9b;
+  color: var(--verde);
 }
 .description {
   font-size: 14px;
@@ -80,20 +82,20 @@ body {
 }
 .btn-primary:hover {
   background-color: #fff;
-  color: #58af9b;
+  color: var(--verde);
 }
 .btn-second {
-  background-color: #58af9b;
-  border: 1px solid #58af9b;
+  background-color: var(--verde);
+  border: 1px solid var(--verde);
   transition: background-color 0.5s;
 }
 .btn-second:hover {
   background-color: #fff;
-  border: 1px solid #58af9b;
-  color: #58af9b;
+  border: 1px solid var(--verde);
+  color: var(--verde);
 }
 .first-content {
-  border: solid 1px;
+  /* border: solid 1px; */
   display: flex;
 }
 .first-content .second-column {
@@ -121,12 +123,19 @@ body {
   width: 100%;
   border: none;
   background-color: #ecf0f1;
+  border-radius: 10px;
 }
+
+.inputlogin:focus {
+  outline: 2px solid var(--verde);
+}
+
 .label-input {
   background-color: #ecf0f1;
   display: flex;
   align-items: center;
   margin: 8px;
+  border-radius: 10px;
 }
 .icon-modify {
   color: #7f8c8d;

@@ -81,6 +81,7 @@ function Login() {
                 }} // pega o valor digitado e coloca como um valor
                 placeholder="Email"
                 required
+                className="inputlogin"
               />
             </label>
             <label className="label-input" htmlFor="">
@@ -92,6 +93,7 @@ function Login() {
                 }} // pega o valor digitado e coloca como um valor
                 placeholder="Senha"
                 required
+                className="inputlogin"
               />
             </label>
             {/* <a className="password" href="#">

@@ -68,7 +68,7 @@
 }
 
 .normalLink a:hover {
-  background-color: var(--cinza);
+  background-color: var(--verde);
   color: var(--preto);
 }
 
@@ -82,3 +82,4 @@
 
 #sairLink {
   padding-top: 20%;
+}
