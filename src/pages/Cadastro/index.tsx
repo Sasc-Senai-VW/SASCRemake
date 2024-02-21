@@ -782,7 +782,7 @@ export default function Cadastro() {
             <article onClick={toggleModelo}>
               <figure>
                 <img
-                  src="https://img.freepik.com/fotos-gratis/interior-de-um-grande-armazem-logistico-ai-generative_123827-23884.jpg?w=740&t=st=1701210441~exp=1701211041~hmac=33f44cb8698515f32ab41634904650dec2269bdb8f85cd80ba4b36bc6840659f"
+                  src="https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010144.jpg?w=996&t=st=1708555891~exp=1708556491~hmac=4a8ed26c12d2f959a0e24cb5492ac2cb5221f5d18371c855936159d66079ca99"
                   alt="Preview"
                 />
               </figure>
